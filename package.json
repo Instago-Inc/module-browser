@@ -1,0 +1,17 @@
+{
+  "name": "@instago/browser",
+  "version": "1.0.1",
+  "description": "Module browser",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "instago",
+    "browser"
+  ],
+  "files": [
+    "index.js",
+    "ReadMe.MD",
+    "LICENSE"
+  ]
+}

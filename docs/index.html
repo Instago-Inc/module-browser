@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>browser Documentation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 48px 24px;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: #e2e8f0;
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 28px;
+      }
+      .intro {
+        font-size: 16px;
+        color: #e2e8f0;
+      }
+      p {
+        margin: 0 0 16px;
+        color: #cbd5f5;
+      }
+      ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+      }
+      a {
+        color: #93c5fd;
+      }
+      .section {
+        margin-top: 28px;
+      }
+      .muted {
+        color: #94a3b8;
+        font-size: 14px;
+        margin: 6px 0 0;
+      }
+      .code {
+        background: #0b1220;
+        border: 1px solid #1e293b;
+        border-radius: 10px;
+        padding: 16px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-size: 13px;
+        line-height: 1.5;
+        color: #e2e8f0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>module/browser - V8 module</h1>
+      <p class="intro">Turn a web page into a simple, script-friendly object for pulling text, HTML, and headings without dealing with browser plumbing. This module keeps the surface small so you can focus on workflows and data you want to extract.</p>
+      <p class="muted">Learn more at <a href="https://instago.ai" target="_blank" rel="noopener">https://instago.ai</a>.</p>
+      <div class="section">
+        <h2>Technical reference</h2>
+        <h1>module/browser - V8 module</h1>
+<p>Turn a web page into a simple, script-friendly object for pulling text, HTML, and headings without dealing with browser plumbing. This module keeps the surface small so you can focus on workflows and data you want to extract.</p>
+<p>Learn more at https://instago.ai.</p>
+<h2>Technical reference</h2>
+<p>Exports:</p>
+<ul>
+<li><code>page(url, options?)</code></li>
+<li><code>close</code></li>
+<li><code>raw</code></li>
+</ul>
+<p>Usage:</p>
+<ul>
+<li><code>page(url, options?)</code> returns a page wrapper.</li>
+<li><code>options.refresh</code> (boolean): if true, snapshot the DOM immediately.</li>
+<li>Methods on the wrapper:</li>
+<li><code>url()</code> -&gt; current URL string</li>
+<li><code>goto(url, { refresh? })</code> -&gt; same wrapper</li>
+<li><code>reload({ refresh? })</code> -&gt; same wrapper</li>
+<li><code>html({ refresh? })</code> / <code>getHTML({ refresh? })</code> -&gt; DOM HTML string</li>
+<li><code>text({ refresh? })</code> / <code>getText({ refresh? })</code> -&gt; plain text string</li>
+<li><code>headings(levels?, { refresh? })</code> / <code>getHeaders(levels?, { refresh? })</code></li>
+<li><code>levels</code> can be a number or array; defaults to h1-h6</li>
+<li>returns an object like <code>{ h1: [...], h2: [...] }</code></li>
+<li><code>refresh()</code> -&gt; forces a new DOM snapshot and returns HTML</li>
+<li><code>raw()</code> -&gt; underlying page object</li>
+<li>If available on the underlying page object: <code>close()</code>, <code>click()</code>, <code>evaluate()</code>, <code>mouseMove()</code>, <code>screenshot()</code></li>
+<li><code>close</code> is the module-level close helper (passes through to the underlying runtime).</li>
+<li><code>raw</code> exposes the module-level underlying object.</li>
+</ul>
+<p>Configuration:</p>
+<ul>
+<li>No required or optional env keys.</li>
+</ul>
+<p>Examples:</p>
+<pre class="code"><code>
+const browser = require(&#x27;browser@latest&#x27;);
+
+const page = browser.page(&#x27;https://instago.ai&#x27;, { refresh: true });
+const titleText = page.headings(1).h1.join(&#x27; &#x27;);
+const bodyText = page.text();
+page.close();
+</code></pre>
+<pre class="code"><code>
+const browser = require(&#x27;browser@latest&#x27;);
+
+const page = browser.page(&#x27;https://example.com&#x27;);
+page.goto(&#x27;https://instago.ai&#x27;, { refresh: true });
+const html = page.html();
+page.close();
+</code></pre>
+      </div>
+      
+    </main>
+  </body>
+</html>

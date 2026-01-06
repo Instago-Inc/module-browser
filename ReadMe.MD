@@ -1,6 +1,6 @@
 # module/browser - V8 module
 
-Turn a web page into a simple, script-friendly object for pulling text, HTML, and headings without dealing with browser plumbing. This module keeps the surface small so you can focus on workflows and data you want to extract.
+Quickly turn a web page into a small, friendly object you can query for text, HTML, and headings without managing browser details. It is designed for workflows that want simple extraction with minimal setup.
 
 Learn more at https://instago.ai.
 

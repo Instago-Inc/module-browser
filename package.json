@@ -1,6 +1,6 @@
 {
   "name": "@instago/browser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module browser",
   "main": "index.js",
   "type": "commonjs",
